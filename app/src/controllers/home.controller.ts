@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Request, RequestHandler, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import response from "../utils/response";
 
-const homecontroller = (req: Request, res: Response) => {
+const homecontroller: RequestHandler = (req: Request, res: Response): void => {
   response(res, StatusCodes.ACCEPTED, true, { say: "hello world" }, "Accepted");
 };
 
