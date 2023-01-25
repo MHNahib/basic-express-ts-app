@@ -1,13 +1,12 @@
-import express from "express";
+import express, { Application } from "express";
+import { Server } from "http";
 
-const app = express();
+import { home } from "./src/routes";
 
-app.get("/", (req, res) => {
-  res.send({
-    mesage: "Hi from ts",
-  });
-});
+const app: Application = express();
+
+app.use("/", home);
 
 const port: number = Number(process.env.PORT || 3000);
 
-app.listen(port, () => console.log(`🚀 on ${port}`));
+const server: Server = app.listen(port, () => console.log(`🚀 on ${port}`));
