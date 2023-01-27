@@ -1,9 +1,16 @@
 import express, { Application } from "express";
 import { Server } from "http";
+import compression from "compression";
 
 import { home } from "./src/routes";
 
 const app: Application = express();
+
+app.use(
+  compression({
+    level: 6,
+  })
+);
 
 app.use("/", home);
 
